@@ -53,7 +53,7 @@ struct ContentView: View {
             }
         }
     
-    
+    //gets weather json into weatherdata vat
     func getWeather() async throws -> weatherData {
         let endpoint = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(apiKey)&units=imperial"
         
@@ -73,7 +73,7 @@ struct ContentView: View {
     }
 }
 
-
+//possible error enum
 enum appError: Error {
     case invalidURL
     case invalidReponse

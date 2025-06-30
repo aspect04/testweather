@@ -15,10 +15,12 @@ struct TodayView: View {
     
     var body: some View {
         
-        TextField("Enter city name", text: $cityName)
-            .padding(-4)
-            .font(.system(size: 26, weight: .medium))
-            .multilineTextAlignment(.center)
+//        TextField("Enter city name", text: $cityName)
+//            .padding(-4)
+//            .font(.system(size: 26, weight: .medium))
+//            .multilineTextAlignment(.center)
+        
+        
         
         if let weather = weather {
             Forecast(weather: Binding.constant(weather))

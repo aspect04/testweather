@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+//current json objects
 struct weatherData: Codable {
     let main: Main
     let weather: [Weather]
@@ -25,7 +25,7 @@ struct Main: Codable {
 }
 
 
-
+// three hour json objects
 struct triweatherData: Codable {
     let list: [triListy]
     
@@ -35,7 +35,6 @@ struct triListy: Codable {
     let dt: Int
     let main: triMain
     let weather: [triWeather]
-    
     
 }
 

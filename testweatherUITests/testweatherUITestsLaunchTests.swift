@@ -1,13 +1,13 @@
 //
-//  musicplayerUITestsLaunchTests.swift
-//  musicplayerUITests
+//  testweatherUITestsLaunchTests.swift
+//  testweatherUITests
 //
-//  Created by a on 25/6/24.
+//  Created by a on 28/6/25.
 //
 
 import XCTest
 
-final class musicplayerUITestsLaunchTests: XCTestCase {
+final class testweatherUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

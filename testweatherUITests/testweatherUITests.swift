@@ -1,13 +1,13 @@
 //
-//  musicplayerUITests.swift
-//  musicplayerUITests
+//  testweatherUITests.swift
+//  testweatherUITests
 //
-//  Created by a on 25/6/24.
+//  Created by a on 28/6/25.
 //
 
 import XCTest
 
-final class musicplayerUITests: XCTestCase {
+final class testweatherUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -33,11 +33,9 @@ final class musicplayerUITests: XCTestCase {
 
     @MainActor
     func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+        // This measures how long it takes to launch your application.
+        measure(metrics: [XCTApplicationLaunchMetric()]) {
+            XCUIApplication().launch()
         }
     }
 }
