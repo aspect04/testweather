@@ -12,13 +12,24 @@ struct TodayView: View {
     @Binding var cityName: String
     @Binding var weather: weatherData?
     @State private var apiRunning = true
+    @State private var searchIsActive = false
     
     var body: some View {
         
-//        TextField("Enter city name", text: $cityName)
-//            .padding(-4)
-//            .font(.system(size: 26, weight: .medium))
-//            .multilineTextAlignment(.center)
+        TextField("Enter city name", text: $cityName)
+            .padding(-4)
+            .font(.system(size: 26, weight: .medium))
+            .multilineTextAlignment(.center)
+            .searchable(text: $cityName)
+            .searchSuggestions {
+//                ForEach(cityName.suggestedSearches) { suggestion in
+//                    Label(suggestion.title,  image: suggestion.image)
+//                        .searchCompletion(suggestion.text)
+//                }
+                Text("Bothell").searchCompletion("Bothell")
+                Text("Dallas").searchCompletion("Dallas")
+                Text("London").searchCompletion("London")
+                }
         
         
         
