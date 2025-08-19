@@ -14,14 +14,18 @@ struct ContentView: View {
     @State private var weather: weatherData?
     @State private var isShowingAlert = false
     @Binding var apirunning: Bool
+    @State var TodaySheetShowing = false
     
     var body: some View {
         
-        ZStack {
+        NavigationStack {
             LinearGradient(colors: [Color.blue, Color.gray], startPoint: .topLeading, endPoint: .bottomTrailing).edgesIgnoringSafeArea(.all)
             VStack {
                 VStack(alignment: .center) {
                     TodayView(cityName: $cityName, weather: $weather)
+                        .sheet(isPresented: $TodaySheetShowing) {
+                            TodaySheetView(cityName: $cityName, weather: $weather)
+                        }
                 }
                 .frame(alignment: .center)
                 .padding(.top, 15)
@@ -30,8 +34,10 @@ struct ContentView: View {
                 ScrollView(.horizontal) {
                     HStack(spacing: 20) {
                         ForEach(0...39, id: \.self) { i in
-                            trihourly(cityName: $cityName, apiKey: $apiKey, apirunning: $apirunning,i: i)
-                        
+                            // Wrap trihourly in NavigationLink to fix error (no '.NavigationLink()' modifier)
+                            NavigationLink(destination: DailyNavView(cityName: $cityName, weather: $weather)) {
+                                trihourly(cityName: $cityName, apiKey: $apiKey, apirunning: $apirunning,i: i)
+                            }
                         }
                     }
                 }
@@ -73,7 +79,7 @@ struct ContentView: View {
     }
 }
 
-//possible error enum
+//Enum of all possible errors
 enum appError: Error {
     case invalidURL
     case invalidReponse

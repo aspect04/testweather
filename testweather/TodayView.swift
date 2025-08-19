@@ -21,6 +21,7 @@ struct TodayView: View {
             .font(.system(size: 26, weight: .medium))
             .multilineTextAlignment(.center)
             .searchable(text: $cityName)
+            .font(.largeTitle)
             .searchSuggestions {
 //                ForEach(cityName.suggestedSearches) { suggestion in
 //                    Label(suggestion.title,  image: suggestion.image)
@@ -50,3 +51,5 @@ struct TodayView: View {
     
     
 }
+
+

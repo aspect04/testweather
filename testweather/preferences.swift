@@ -12,3 +12,8 @@ func aqiPreferences() -> Bool {
    //     return true
     return false
 }
+func tempPreferences() -> Bool {
+   // if tempF > 100
+   //     return true
+    return false
+}
