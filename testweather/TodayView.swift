@@ -20,14 +20,14 @@ struct TodayView: View {
             .padding(-4)
             .font(.system(size: 26, weight: .medium))
             .multilineTextAlignment(.center)
-            .searchable(text: $cityName)
+          //  .searchable(text: $cityName)
             .font(.largeTitle)
             .searchSuggestions {
 //                ForEach(cityName.suggestedSearches) { suggestion in
 //                    Label(suggestion.title,  image: suggestion.image)
 //                        .searchCompletion(suggestion.text)
 //                }
-                Text("Bothell").searchCompletion("Bothell")
+               // Text("Bothell").searchCompletion("Bothell")
                 Text("Dallas").searchCompletion("Dallas")
                 Text("London").searchCompletion("London")
                 }

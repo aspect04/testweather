@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var apiKey = ""
+    @Binding var apiKey: String
     @AppStorage("cityName") private var cityName = ""
     @State private var weather: weatherData?
     @State private var isShowingAlert = false
@@ -22,6 +22,7 @@ struct ContentView: View {
             LinearGradient(colors: [Color.blue, Color.gray], startPoint: .topLeading, endPoint: .bottomTrailing).edgesIgnoringSafeArea(.all)
             VStack {
                 VStack(alignment: .center) {
+                    SearchView(cityName: $cityName)
                     TodayView(cityName: $cityName, weather: $weather)
                         .sheet(isPresented: $TodaySheetShowing) {
                             TodaySheetView(cityName: $cityName, weather: $weather)
@@ -35,7 +36,7 @@ struct ContentView: View {
                     HStack(spacing: 20) {
                         ForEach(0...39, id: \.self) { i in
                             // Wrap trihourly in NavigationLink to fix error (no '.NavigationLink()' modifier)
-                            NavigationLink(destination: DailyNavView(cityName: $cityName, weather: $weather)) {
+                           // NavigationLink(destination: DailyNavView(cityName: $cityName, weather: $weather)) {
                                 trihourly(cityName: $cityName, apiKey: $apiKey, apirunning: $apirunning,i: i)
                             }
                         }
@@ -57,7 +58,7 @@ struct ContentView: View {
                     }
                 }
             }
-        }
+    //}
     
     //gets weather json into weatherdata vat
     func getWeather() async throws -> weatherData {
@@ -89,8 +90,9 @@ enum appError: Error {
 
 struct ContentView_Previews: PreviewProvider {
     @State static var apiRunning: Bool = false
-
+    @State static var apiKey: String = "YOUR_API_KEY"
     static var previews: some View {
-        ContentView(apirunning: $apiRunning)
+        ContentView(apiKey: $apiKey, apirunning: $apiRunning)
     }
 }
+
